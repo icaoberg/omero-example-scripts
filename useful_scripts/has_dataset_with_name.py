@@ -39,15 +39,15 @@ import json
 if __name__ == "__main__":
 
     client = scripts.client('has_dataset_with_name.py', """This script returns true if dataset exists, false otherwise""",
-        version = "0.1",
-        authors = ["Ivan E. Cao-Berg"],
-        institutions = ["Carnegie Mellon University"],
-        contact = "icaoberg@andrew.cmu.edu",
-
         scripts.String(
         "dataset_name", optional=False,
         description="Dataset name",
         values=rstring('Dataset'), default=""),
+
+        version = "0.1",
+        authors = ["Ivan E. Cao-Berg"],
+        institutions = ["Carnegie Mellon University"],
+        contact = "icaoberg@andrew.cmu.edu",
     )
 
     conn = BlitzGateway(client_obj=client)

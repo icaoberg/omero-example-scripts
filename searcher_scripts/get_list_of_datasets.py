@@ -20,7 +20,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 """
-This script returns a list of the projects associated with the current user
+This script returns a list of the datasets associated with the current user
 """
 
 import omero

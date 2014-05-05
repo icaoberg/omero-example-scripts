@@ -34,11 +34,7 @@ from cStringIO import StringIO
 from numpy import *
 
 from warnings import warn as warning
-
-try:
-    from PIL import Image
-except ImportError:
-    import Image
+import json
 
 if __name__ == "__main__":
 
@@ -64,12 +60,15 @@ if __name__ == "__main__":
             client.closeSession()   
             
         try:
-            names = []
-            prids = []
+            list_of_projects = []
             # connect as above
             for project in conn.listProjects():
-                print str(project.getId()) + ":" + project.getName()
+                temp = {}
+                temp['iid'] = str(project.getId())
+                temp['name'] = project.getName()
+                list_of_projects.append( temp )
 
+            json.dumps( list_of_projects )
         except:
             message = "Unable to retrieve list of projects" 
             raise warning( message, UserWarning )

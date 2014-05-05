@@ -64,7 +64,7 @@ if __name__ == "__main__":
             # connect as above
             for project in conn.listProjects():
                 temp = {}
-                temp['iid'] = str(project.getId())
+                temp['iid'] = long(project.getId())
                 temp['name'] = project.getName()
                 list_of_projects.append( temp )
 

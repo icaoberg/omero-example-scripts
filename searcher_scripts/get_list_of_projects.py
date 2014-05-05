@@ -33,6 +33,8 @@ import omero.scripts as scripts
 from cStringIO import StringIO
 from numpy import *
 
+from warnings import warn as warning
+
 try:
     from PIL import Image
 except ImportError:
@@ -56,7 +58,21 @@ if __name__ == "__main__":
         # defined above.
 
         client.setOutput("Message", rstring("Success"))
-	print "It works!"
+        if not conn.isConnected():
+            message = "Unable to connect to OMERO.server" 
+            raise warning( message, UserWarning )
+            client.closeSession()   
+            
+        try:
+            names = []
+            prids = []
+            # connect as above
+            for project in conn.listProjects():
+                print str(project.getId()) + ":" + project.getName()
 
+        except:
+            message = "Unable to retrieve list of projects" 
+            raise warning( message, UserWarning )
+            client.closeSession()   
     finally:
         client.closeSession()

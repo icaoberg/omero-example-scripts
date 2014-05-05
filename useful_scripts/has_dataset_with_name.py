@@ -45,9 +45,9 @@ if __name__ == "__main__":
         contact = "icaoberg@andrew.cmu.edu",
 
         scripts.String(
-        "dataset_name", optional=False, grouping="1",
+        "dataset_name", optional=False,
         description="Dataset name",
-        values=dataTypes, default=""),
+        values=rstring('Dataset'), default=""),
     )
 
     conn = BlitzGateway(client_obj=client)

@@ -42,12 +42,11 @@ if __name__ == "__main__":
 
     dataTypes = [rstring('Image')]
 
-    client = scripts.client('get_list_of_projects.py', """This script returns a list of projects""","
-
-    version = "0.1",
-    authors = ["Ivan E. Cao-Berg"],
-    institutions = ["Carnegie Mellon University"],
-    contact = "icaoberg@andrew.cmu.edu",
+    client = scripts.client('get_list_of_projects.py', """This script returns a list of projects""",
+        version = "0.1",
+        authors = ["Ivan E. Cao-Berg"],
+        institutions = ["Carnegie Mellon University"],
+        contact = "icaoberg@andrew.cmu.edu",
     )
 
     try:

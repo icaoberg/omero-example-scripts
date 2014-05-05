@@ -43,6 +43,11 @@ if __name__ == "__main__":
         authors = ["Ivan E. Cao-Berg"],
         institutions = ["Carnegie Mellon University"],
         contact = "icaoberg@andrew.cmu.edu",
+
+        scripts.String(
+        "dataset_name", optional=False, grouping="1",
+        description="Dataset name",
+        values=dataTypes, default=""),
     )
 
     conn = BlitzGateway(client_obj=client)
@@ -51,7 +56,7 @@ if __name__ == "__main__":
     # defined above.
 
     client.setOutput("Message", rstring("Success"))
-    
+
     if not conn.isConnected():
         message = "Unable to connect to OMERO.server" 
         raise warning( message, UserWarning )
@@ -60,14 +65,14 @@ if __name__ == "__main__":
     try:
         if not conn.getObject( "Dataset", attributes={'name': name } ):
             client.closeSession()
-            return False
+            print False
         else:
             client.closeSession()
-            return True
+            print True
     except:
         message = "Found more than one dataset with the matching name" 
         raise warning( message, UserWarning )
         client.closeSession()
-        return True
+        print True
     finally:
         client.closeSession()

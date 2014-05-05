@@ -68,7 +68,7 @@ if __name__ == "__main__":
                 temp['name'] = project.getName()
                 list_of_projects.append( temp )
 
-            json.dumps( list_of_projects )
+            print json.dumps( list_of_projects )
         except:
             message = "Unable to retrieve list of projects" 
             raise warning( message, UserWarning )

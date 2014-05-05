@@ -38,8 +38,6 @@ import json
 
 if __name__ == "__main__":
 
-    dataTypes = [rstring('Image')]
-
     client = scripts.client('get_list_of_projects.py', """This script returns a list of projects""",
         version = "0.1",
         authors = ["Ivan E. Cao-Berg"],
@@ -64,7 +62,7 @@ if __name__ == "__main__":
             # connect as above
             for project in conn.listProjects():
                 temp = {}
-                temp['iid'] = long(project.getId())
+                temp['prid'] = long(project.getId())
                 temp['name'] = project.getName()
                 list_of_projects.append( temp )
 

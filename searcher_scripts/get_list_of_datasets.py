@@ -65,7 +65,7 @@ if __name__ == "__main__":
                     temp = {}
                     temp['did'] = long(dataset.getId())
                     temp['name'] = dataset.getName()
-                    list_of_projects.append( temp )
+                    list_of_datasets.append( temp )
 
             print json.dumps( list_of_datasets )
         except:

@@ -39,6 +39,7 @@ import json
 if __name__ == "__main__":
 
     client = scripts.client('has_dataset_with_name.py', """This script returns true if dataset exists, false otherwise""",
+ 
         scripts.String(
         "dataset_name", optional=False,
         description="Dataset name",
@@ -56,6 +57,14 @@ if __name__ == "__main__":
     # defined above.
 
     client.setOutput("Message", rstring("Success"))
+
+    # process the list of args above.
+    scriptParams = {}
+    for key in client.getInputKeys():
+        if client.getInput(key):
+            scriptParams[key] = client.getInput(key, unwrap=True)
+
+    print scriptParams
 
     if not conn.isConnected():
         message = "Unable to connect to OMERO.server" 
